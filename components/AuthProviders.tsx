@@ -7,7 +7,7 @@ type Provider = {
   id: string;
   name: string;
   type: string;
-  siginUrl: string;
+  signinUrl: string;
   callbackUrl: string;
   siginUrlParams?: Record<string, string> | null;
 }
@@ -18,22 +18,20 @@ const AuthProviders = () => {
   const [providers, setProviders] = useState<Providers | null>(null);
 
   useEffect(() => {
-    const fetchProviders = async () => {
-      const res = await getProviders();
+      const fetchProviders = async () => {
+          const res = await getProviders();
+  
+          setProviders(res);
+      }
 
-      setProviders(res);
-    }
-
-    fetchProviders();
+      fetchProviders();
   }, []);
 
   if (providers) {
     return (
       <div>
         {Object.values(providers).map((provider: Provider, i) => (
-          <button key={i}>
-            {provider.id}
-          </button>
+          <button key={i} onClick={() => signIn(provider?.id)}> {provider.id} </button>
         ))}
       </div>
     )
