@@ -30,7 +30,7 @@ const Navbar = async () => {
         {session?.user ? (
           <>
             {session?.user?.image && (
-             <Image 
+             <Image
               src={session.user.image}
               width={40}
               height={40}
