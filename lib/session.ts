@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
             jsonwebtoken.sign({
                 ...token,
                 iss: 'grafbase',
-                exp: Math.floor(Date.now() / 1000) + 13 * 60 * 60
+                exp: Math.floor(Date.now() / 1000) +  60 * 60,
             }, secret)
 
             return encodedToken;
@@ -83,4 +83,4 @@ export async function getCurrentUser() {
     const session = await getServerSession(authOptions) as SessionInterface
 
     return session;
-}
+} 
