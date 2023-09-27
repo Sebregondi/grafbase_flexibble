@@ -11,3 +11,19 @@ export const getUserQuery = `
         }
     }
 `
+
+export const createUserMutation = `
+    mutation createUser($input: userCreateInput!) {
+        userCreate(input: $input) {
+            user {
+                name
+                email
+                avatarUrl
+                description
+                githubUrl
+                linkedinUrl
+                id
+            }
+        }
+    }
+`
