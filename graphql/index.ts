@@ -13,7 +13,7 @@ export const getUserQuery = `
 `
 
 export const createUserMutation = `
-    mutation createUser($input: userCreateInput!) {
+    mutation CreateUser($input: UserCreateInput!) {
         userCreate(input: $input) {
             user {
                 name
@@ -23,7 +23,7 @@ export const createUserMutation = `
                 githubUrl
                 linkedinUrl
                 id
-            }
+            }   
         }
     }
 `
